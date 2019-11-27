@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     block-demo-with-markup
- * Plugin URI:      https://github.com/hamworks/block-demo-with-markup
+ * Plugin URI:      https://gitlab.com/hamworks/wordpress-plugins/block-demo-with-markup.git
  * Description:     block-demo-with-markup.
  * Author:          hamworks
  * Author URI:      https://ham.works
