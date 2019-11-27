@@ -14,5 +14,5 @@ sed -i '' -e "s/^ \* @version .*/ * @version ${version}/g" block-demo-with-marku
 
 rsync -a --exclude-from=.distignore ./ ./distribution/
 cd distribution
-zip -r ../simple-speech-ballon.zip ./
+zip -r ../block-demo-with-markup.zip ./
 cd ../
