@@ -30,7 +30,7 @@ function render( $attributes, $content ) {
 	?>
 	<div class="wp-block-block-demo-with-markup">
 		<div><?php echo $content; ?></div>
-		<pre><?php echo esc_html( $content ); ?></pre>
+		<pre><code><?php echo esc_html( $content ); ?></code></pre>
 	</div>
 	<?php
 	return ob_get_clean();

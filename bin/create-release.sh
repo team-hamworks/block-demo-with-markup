@@ -16,3 +16,4 @@ rsync -a --exclude-from=.distignore ./ ./distribution/
 cd distribution
 zip -r ../block-demo-with-markup.zip ./
 cd ../
+rm -rf distribution
