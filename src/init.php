@@ -2,6 +2,8 @@
 
 namespace HAMWORKS\Block_Demo_With_Markup;
 
+use DOMDocument;
+
 add_action(
 	'init',
 	function () {
@@ -29,6 +31,7 @@ add_action(
 add_action(
 	'init',
 	function () {
+		wp_enqueue_style( 'block-demo-with-markup-front', plugins_url( 'build/front.css', PLUGIN_FILE ) );
 		$script_asset = require( dirname( PLUGIN_FILE ) . '/build/front.asset.php' );
 		wp_enqueue_code_editor( array( 'type' => 'htmlmixed' ) );
 		wp_enqueue_script(
@@ -43,10 +46,17 @@ add_action(
 
 function render( $attributes, $content ) {
 	ob_start();
+	$dom = new DOMDocument();
+	$dom->preserveWhiteSpace = false;
+	$dom->formatOutput = true;
+	$dom->recover = true;
+	$dom->loadXML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+	$out = $dom->saveXML($dom->documentElement);
+
 	?>
 	<div class="wp-block-block-demo-with-markup">
 		<div><?php echo $content; ?></div>
-		<pre><code><?php echo esc_html( $content ); ?></code></pre>
+		<pre><code><?php echo esc_html( $out ); ?></code></pre>
 	</div>
 	<?php
 	return ob_get_clean();

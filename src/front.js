@@ -1,5 +1,6 @@
 import domReady from '@wordpress/dom-ready';
-
+import beautify from 'js-beautify';
+import hljs from 'highlightjs/highlight.pack'
 
 /**
  * @typedef {object} wp.codeEditor~CodeEditorInstance
@@ -24,17 +25,12 @@ const { codeEditor } = wp;
 const { CodeMirror } = wp;
 
 const convertHTML = str => {
-	return str .replace(/&lt;/g, '<') .replace(/&gt;/g, '>') .replace(/&quot;/g, '"') .replace(/&#039;/g, '\'') .replace(/&#044;/g, ',') .replace(/&amp;/g, '&');
+	return str.replace( /&lt;/g, '<' ).replace( /&gt;/g, '>' ).replace( /&quot;/g, '"' ).replace( /&#039;/g, '\'' ).replace( /&#044;/g, ',' ).replace( /&amp;/g, '&' );
 };
 
-
 domReady( function () {
-	Array.from( document.querySelectorAll('.wp-block-block-demo-with-markup') ).map( (element) => {
-		const code = element.querySelector('pre code').innerHTML;
-		CodeMirror(element, {
-			value: convertHTML(code.trim()),
-			readonly:true,
-		});
-	})
-});
+	document.querySelectorAll('pre code').forEach((block) => {
+		hljs.highlightBlock(block);
+	});
+} );
 
