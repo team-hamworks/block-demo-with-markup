@@ -24,10 +24,6 @@ const { codeEditor } = wp;
  */
 const { CodeMirror } = wp;
 
-const convertHTML = str => {
-	return str.replace( /&lt;/g, '<' ).replace( /&gt;/g, '>' ).replace( /&quot;/g, '"' ).replace( /&#039;/g, '\'' ).replace( /&#044;/g, ',' ).replace( /&amp;/g, '&' );
-};
-
 domReady( function () {
 	document.querySelectorAll('pre code').forEach((block) => {
 		hljs.highlightBlock(block);
