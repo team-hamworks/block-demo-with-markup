@@ -42,11 +42,12 @@ add_action(
  */
 function render( $attributes, string $content ) {
 	$content = formatHTML( $content );
+	$code = syntaxHighlight( $content, 'html' );
 	ob_start();
 	?>
 	<div class="wp-block-block-demo-with-markup">
 		<div><?php echo $content; ?></div>
-		<pre><code><?php echo syntaxHighlight( $content, 'html' ); ?></code></pre>
+		<pre><code><?php echo $code->value; ?></code></pre>
 	</div>
 	<?php
 	return ob_get_clean();
