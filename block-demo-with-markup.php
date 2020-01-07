@@ -13,6 +13,8 @@
 
 namespace HAMWORKS\Block_Demo_With_Markup;
 
+require dirname( __FILE__ ) . '/vendor/autoload.php';
+
 const PLUGIN_FILE = __FILE__;
 
 /**

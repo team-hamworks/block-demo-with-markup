@@ -40,7 +40,6 @@ yarn.lock
 tests
 test
 *.test.js
-vendor
 node_modules
 *.sql
 wordpress
