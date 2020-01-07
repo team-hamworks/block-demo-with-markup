@@ -7,7 +7,7 @@
  * Author URI:      https://ham.works
  * Text Domain:     block-demo-with-markup
  * Domain Path:     /languages
- * Version: 0.1.0
+ * Version: 0.1.1
  * @package         Block_Demo_With_Markup
  */
 
