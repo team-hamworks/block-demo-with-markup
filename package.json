@@ -40,12 +40,6 @@
 		"hooks": {
 			"before:bump": "bash ./bin/create-release.sh ${version}"
 		},
-		"gitlab": {
-			"release": true,
-			"assets": [
-				"block-demo-with-markup.zip"
-			]
-		},
 		"github": {
 			"release": true,
 			"assets": [
