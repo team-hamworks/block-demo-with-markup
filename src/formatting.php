@@ -1,8 +1,9 @@
 <?php
+
 namespace HAMWORKS\Block_Demo_With_Markup;
 
-use DOMDocument;
 use Highlight\HighlightResult;
+use XhtmlFormatter\Formatter;
 
 /**
  * Pretty format HTML
@@ -12,12 +13,9 @@ use Highlight\HighlightResult;
  * @return string
  */
 function formatHTML( string $html ) {
-	$dom                     = new DOMDocument();
-	$dom->preserveWhiteSpace = false;
-	$dom->formatOutput       = true;
-	$dom->recover            = true;
-	$dom->loadXML( $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
-	return $dom->saveXML( $dom->documentElement );
+	$formatter = new Formatter();
+
+	return $formatter->format( $html );
 }
 
 /**
@@ -34,14 +32,14 @@ function syntaxHighlight( string $code, ?string $language = null ) {
 	try {
 		if ( $language ) {
 			$highlighted = $hl->highlight( $language, $code );
-		}
-		else {
+		} else {
 			$highlighted = $hl->highlightAuto( $code, array( 'javascript', 'css', 'php', 'xml' ) );
 		}
 	} catch ( \Exception $e ) {
-		$result = new \stdClass();
-		$result->value = $code;
+		$result           = new \stdClass();
+		$result->value    = $code;
 		$result->language = '';
+
 		return $result;
 	}
 

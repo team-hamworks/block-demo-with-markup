@@ -11,9 +11,9 @@
     ],
     "require": {
         "php": ">=7.1",
-        "ext-dom": "*",
         "scrivo/highlight.php": "^9.17",
-        "ext-libxml": "*"
+        "ivopetkov/html5-dom-document-php": "^2.2",
+        "machy8/xhtml-formatter": "^1.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.4.2",
